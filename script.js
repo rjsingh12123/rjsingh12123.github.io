@@ -110,8 +110,6 @@ function submitForm(e){
     let email = document.querySelector("#email").value;
     let message = document.querySelector("#message").value;
     let sub = document.querySelector("#subject").value;
-    // saveContactInfo(name, email, message);
-    document.querySelector(".contact__form").reset();
     sendEmail(name, email,sub, message);
 }
 
