@@ -102,7 +102,6 @@ document.querySelector(".contact-form").addEventListener("submit",
     submitForm
 );
 
-//collecting mail info
 function submitForm(e){
 
     e.preventDefault();
@@ -114,7 +113,6 @@ function submitForm(e){
     sendEmail(name, email,sub, message);
 }
 
-//sending mail
 function sendEmail(name, email,sub, message)
 {
     Email.
