@@ -109,12 +109,13 @@ function submitForm(e){
     let name = document.querySelector("#name").value;
     let email = document.querySelector("#email").value;
     let message = document.querySelector("#message").value;
+    let sub = document.querySelector("#subject").value;
     // saveContactInfo(name, email, message);
     document.querySelector(".contact__form").reset();
-    sendEmail(name, email, message);
+    sendEmail(name, email,sub, message);
 }
 
-function sendEmail(name, email, message)
+function sendEmail(name, email,sub, message)
 {
     Email.
     send({
@@ -122,7 +123,7 @@ function sendEmail(name, email, message)
         Username: `${name}`,
         To: "rjsingh12123@gmail.com",
         From: `${email}`,
-        Subject: `${name} sent you a message from your portfolio`,
+        Subject: `message from portfolio - ${name}`,
         Body: `Name:${name} <br/> Email: ${email} <br/> Message: ${message}`,
     }).then((message)=>alert("mail sent successfully"))
 }
