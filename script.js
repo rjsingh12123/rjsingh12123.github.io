@@ -35,7 +35,7 @@ $(document).ready(function () {
 
     // typing text animation script
     var typed = new Typed(".typing", {
-        strings: ["Student", "YouTuber", "Web developer", "Subject Matter Expert in Computer Science"],
+        strings: ["Student", "YouTuber", "Blogger", "Subject Matter Expert in Computer Science"],
         typeSpeed: 100,
         backSpeed: 60,
         loop: true
@@ -96,3 +96,33 @@ sr.reveal('.carousel', { interval: 200 });
 /*SCROLL CONTACT*/
 sr.reveal('.contact', {});
 sr.reveal('.contact-content', { interval: 200 });
+
+/*SUBMIT FORM*/
+document.querySelector(".contact-form").addEventListener("submit",
+    submitForm
+);
+
+function submitForm(e){
+
+    e.preventDefault();
+    // Get input Values
+    let name = document.querySelector("#name").value;
+    let email = document.querySelector("#email").value;
+    let message = document.querySelector("#message").value;
+    // saveContactInfo(name, email, message);
+    document.querySelector(".contact__form").reset();
+    sendEmail(name, email, message);
+}
+
+function sendEmail(name, email, message)
+{
+    Email.
+    send({
+        Host: "smtp.gmail.com",
+        Username: `${name}`,
+        To: "rjsingh12123@gmail.com",
+        From: `${email}`,
+        Subject: `${name} sent you a message from your portfolio`,
+        Body: `Name:${name} <br/> Email: ${email} <br/> Message: ${message}`,
+    }).then((message)=>alert("mail sent successfully"))
+}
